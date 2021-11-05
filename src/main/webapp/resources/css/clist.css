@@ -1,0 +1,125 @@
+@charset "UTF-8";
+  .tit-heading-wrap {
+   		position: relative;
+    	height: 51px;
+    	margin-top: 30px;
+    	border-bottom: 3px;	
+		}
+		
+		header {
+		height: 130px;
+		background-color: black;
+		}
+		
+		header {
+		border: 1px solid #999;
+		padding: 10px;
+	} 
+	
+	[class|="sect"][class*="chart"] > ol {
+    padding-top: 30
+px
+;
+    margin-left: -64
+px
+;
+    border-bottom: 3
+px
+ solid #241d1e;
+    zoom: 1;
+}
+
+.rank {
+    background: red;
+}
+
+.rank {
+    display: block;
+    height: 40px;
+    margin-bottom: 4px;
+    border: 6px solid #000000;
+    color: #ffffff;
+    font-size: 19px;
+    text-align: center;
+    line-height: 28px;
+}
+
+.thumb-image {
+    border: 6px solid #000000;
+}
+
+.thumb-image {
+    display: block;
+    position: relative;
+}
+
+ .thumb-image > img {
+    height: 260
+px
+;
+}
+.box-image img {
+    width: 100%;
+}
+ img {
+    vertical-align: middle;
+}
+
+[class|="sect"][class*="chart"] .title {
+    font-size: 15px;
+}
+
+.title {
+    display: block;
+    color: #333333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.wrap-movie-chart .box-contents {
+    height: 93
+px
+;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    word-break: break-all;
+}
+
+.div {
+    display: block;
+}
+
+.li {
+    text-align: -webkit-match-parent;
+}
+
+.ol {
+    list-style-type: decimal;
+}
+
+body, input, textarea, select, table {
+    font-size: 15px;
+    line-height: 1.2;
+    color: #666;
+    font-family: 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+    font-weight: 300;
+}
+
+[class|="sect"][class*="chart"] .score .percent {
+    vertical-align: middle;
+}
+
+
+strong {
+    font-weight: 500;
+}
+
+ a:link { text-decoration:none; color:black;}
+
+ a:visited { text-decoration:none;color:black;}

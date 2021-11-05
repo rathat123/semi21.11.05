@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Order">
+   <insert id="oCart" parameterType="order">
+      INSERT INTO GORDER VALUES(#{GNo}, #{OName}, #{OPrice}, #{ONo}, #{GPhoto})
+   </insert>
+   <select id="oView" resultType="order">
+   	  SELECT * FROM GORDER
+   </select>
+   <select id="oSum" resultType="String">
+   	  SELECT SUM(OPRICE*ONO) FROM GORDER
+   </select>
+   <delete id="oCheckOut">
+   	  DELETE FROM GORDER
+   </delete>
+   <delete id="oDelete" parameterType="int">
+   	  DELETE FROM GORDER WHERE GNO = #{GNo}
+   </delete>
+</mapper>

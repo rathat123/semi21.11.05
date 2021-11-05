@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.icia.cinema.dto.QNA" alias="qna"/>
+		<typeAlias type="com.icia.cinema.dto.Page" alias="paging"/>	
+		<typeAlias type="com.icia.cinema.dto.Comment" alias="comment"/>	
+		<typeAlias type="com.icia.cinema.dto.Member" alias="member"/>
+		<typeAlias type="com.icia.cinema.dto.Goods" alias="goods"/>
+		<typeAlias type="com.icia.cinema.dto.Cinema" alias="cinema"/>	
+		<typeAlias type="com.icia.cinema.dto.Review" alias="review"/>
+		<typeAlias type="com.icia.cinema.dto.Order" alias="order"/>
+		<typeAlias type="com.icia.cinema.dto.Ticket" alias="ticket"/>
+	</typeAliases>
+</configuration>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GOODS">
+
+	<!-- 상품 등록 -->
+	<insert id="gUpload" parameterType="goods">
+		INSERT INTO GOODS VALUES(GOODS_SEQ.NEXTVAL, #{GName}, #{GExplain},
+		#{GPrice}, #{GPhoto})
+	</insert>
+
+	<!-- 전체 상품 개수 -->
+	<select id="gListCount" resultType="int">
+		SELECT COUNT(*) FROM GOODS
+	</select>
+
+	<!-- 상품 리스트 -->
+	<select id="gList" parameterType="paging" resultType="goods">
+		SELECT *
+		FROM GOODSLIST WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<!-- 상품 상세정보 -->
+	<select id="gView" parameterType="int" resultType="goods">
+		SELECT * FROM
+		GOODS WHERE GNO=#{GNo}
+	</select>
+	<!-- 상품 검색 -->
+		<select id="gSearch" parameterType="String" resultType="goods">
+		SELECT * FROM GOODS WHERE GNAME LIKE '%'||#{keyword}||'%' ORDER BY GNO DESC
+	</select>
+	<delete id="gDelete" parameterType="int">
+		DELETE FROM GOODS WHERE GNO=#{GNo}
+	</delete>
+	
+</mapper>

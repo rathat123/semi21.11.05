@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Cinema">
+	<insert id="ccWrite" parameterType="cinema">
+		INSERT INTO CINEMA 
+		VALUES(CINEMA_SEQ.NEXTVAL, #{CTitle}, SYSDATE, #{CPosterName}, #{CContent}, 0, #{CDirector},#{CActor},#{CGenre},#{CAge})
+	</insert>
+	
+	<select id="ccListCount" resultType="int">
+		SELECT COUNT(*) FROM CINEMA
+	</select>
+	
+	<select id="ccList" parameterType="paging" resultType="cinema">
+		SELECT * FROM CINEMALIST WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="ccsTitle" parameterType="String" resultType="cinema">
+		SELECT * FROM CINEMA WHERE CTITLE LIKE '%'||#{keyword}||'%' ORDER BY CNO DESC
+	</select>
+	
+	<select id="ccsContent" parameterType="String" resultType="cinema">
+		SELECT * FROM CINEMA WHERE CCONTENT LIKE '%'||#{keyword}||'%' ORDER BY CNO DESC
+	</select>
+	
+	<select id="ccsGenre" parameterType="String" resultType="cinema">
+		SELECT * FROM CINEMA WHERE CGENRE LIKE '%'||#{keyword}||'%' ORDER BY CNO DESC
+	</select>
+	
+	<update id="ccHit">
+		UPDATE CINEMA SET CHIT = CHIT + 1 WHERE CNO = #{cNo}
+	</update>
+	
+	<select id="ccView" parameterType="int" resultType="cinema">
+		SELECT * FROM CINEMA WHERE CNO = #{cNo}
+	</select>
+	
+	<select id="rList" parameterType="int" resultType="review">
+      SELECT * FROM REVIEW WHERE CCBNO=#{CCBNo} ORDER BY CBNO DESC
+   </select>
+   
+   <insert id="MId" parameterType="review">
+      INSERT INTO REVIEW VALUES(#{MId}, REVIEW_SEQ.NEXTVAL, #{CCBNo}, #{RContent}, SYSDATE, #{RGrade})
+   </insert>
+   
+	
+	</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Ticket">
+	<select id="tBuy" parameterType="int" resultType="cinema">
+		SELECT * FROM CINEMA WHERE CNO=#{CNo}
+	</select>
+	
+	<insert id="tBuy2" parameterType="ticket">
+		INSERT INTO TICKET VALUES(#{MId}, #{CNo}, #{CTitle}, #{TDate}, #{TTime}, #{TNum})
+	</insert>
+	
+	<select id="tView" parameterType="String" resultType="ticket">
+		SELECT * FROM TICKET WHERE MID=#{MId}
+	</select>
+	
+	<select id="tTotal" parameterType="String" resultType="String">
+		SELECT SUM(9000*TNum) FROM TICKET WHERE MID=#{MId}
+	</select>
+	<delete id="tCheckOut">
+   	  DELETE FROM TICKET
+   </delete>
+	
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QNA">
+	<!-- qna 작성 -->
+	<insert id="qWrite">
+		INSERT INTO QNA VALUES(QNA_SEQ.NEXTVAL, #{MId}, #{QTitle}, #{QContent}, 0)
+	</insert>
+	
+	<!-- 전체 게시글 갯수 -->
+	<select id="qListCount" resultType="int">
+		SELECT COUNT(*) FROM QNA
+	</select>
+	
+	<!-- 리스트 목록 -->
+	<select id="qList" parameterType="paging" resultType="qna">
+		SELECT * FROM QNALIST WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<!-- 조회수 -->
+	<update id="qHit">
+		UPDATE QNA SET QHIT = QHIT + 1 WHERE QNO = #{QNo}
+	</update>
+	
+	<!-- 게시글 상세보기 -->
+	<select id="qView" parameterType="int" resultType="qna">
+		SELECT * FROM QNA WHERE QNO = #{QNo}
+	</select>
+	
+	<!-- 댓글 리스트 -->
+	<select id="cList" parameterType="int" resultType="comment">
+		SELECT * FROM COMMENTDTO WHERE CBNO=#{CBNO} ORDER BY CCNO DESC 
+	</select>
+	
+	<!-- 댓글 작성 -->
+	<insert id="cWrite" parameterType="comment">
+		INSERT INTO COMMENTDTO VALUES(CMT_SEQ.NEXTVAL, #{CBNo}, #{CWriter}, #{CContent})
+	</insert>
+	
+	
+</mapper>
